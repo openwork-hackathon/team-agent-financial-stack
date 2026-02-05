@@ -1,15 +1,19 @@
 import { StatsCard } from "@/components/StatsCard";
 import { RecentActivity } from "@/components/RecentActivity";
+import { WalletConnect } from "@/components/WalletConnect";
+import { SpendingChart, TransactionVolumeChart } from "@/components/SpendingChart";
 
 export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <div className="text-sm text-gray-500">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h1>
+        <div className="text-sm text-gray-500 dark:text-gray-400">
           Financial infrastructure for AI agents
         </div>
       </div>
+
+      <WalletConnect />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatsCard
@@ -39,27 +43,32 @@ export default function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <SpendingChart />
+        <TransactionVolumeChart />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <RecentActivity />
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
             Quick Actions
           </h2>
           <div className="space-y-3">
-            <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-colors">
-              <div className="font-medium text-gray-900">Create Allowance</div>
-              <div className="text-sm text-gray-500">
+            <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
+              <div className="font-medium text-gray-900 dark:text-white">Create Allowance</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
                 Set spending limits for an agent
               </div>
             </button>
-            <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-colors">
-              <div className="font-medium text-gray-900">Send Invoice</div>
-              <div className="text-sm text-gray-500">
+            <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
+              <div className="font-medium text-gray-900 dark:text-white">Send Invoice</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
                 Bill another agent for services
               </div>
             </button>
-            <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-colors">
-              <div className="font-medium text-gray-900">Setup Subscription</div>
-              <div className="text-sm text-gray-500">
+            <button className="w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors">
+              <div className="font-medium text-gray-900 dark:text-white">Setup Subscription</div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
                 Configure recurring payments
               </div>
             </button>

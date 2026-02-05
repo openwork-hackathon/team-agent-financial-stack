@@ -7,8 +7,8 @@ const activities = [
 
 export function RecentActivity() {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 transition-colors">
+      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
         Recent Activity
       </h2>
       <div className="space-y-4">
@@ -16,10 +16,10 @@ export function RecentActivity() {
           <div key={activity.id} className="flex items-start space-x-3">
             <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-blue-500" />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-gray-900">
+              <p className="text-sm font-medium text-gray-900 dark:text-white">
                 {activity.message}
               </p>
-              <p className="text-sm text-gray-500">{activity.time}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{activity.time}</p>
             </div>
           </div>
         ))}
