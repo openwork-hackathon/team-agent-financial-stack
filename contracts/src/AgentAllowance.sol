@@ -241,6 +241,7 @@ contract AgentAllowance is Ownable, ReentrancyGuard, Pausable {
         Allowance storage allowance = allowances[allowanceId];
         require(msg.sender == allowance.owner, "Not owner");
         require(newLimit > 0, "Limit must be > 0");
+        require(newLimit >= allowance.spent, "Limit cannot be below spent");
         
         allowance.limit = newLimit;
         allowance.period = newPeriod;
