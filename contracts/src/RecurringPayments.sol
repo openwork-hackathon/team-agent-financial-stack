@@ -139,7 +139,7 @@ contract RecurringPayments is Ownable, ReentrancyGuard, Pausable {
         uint256 amount,
         Interval interval,
         uint256 allowanceId
-    ) external whenNotPaused returns (uint256) {
+    ) external nonReentrant whenNotPaused returns (uint256) {
         require(provider != address(0), "Invalid provider");
         require(provider != msg.sender, "Cannot subscribe to self");
         require(amount > 0, "Amount must be > 0");
