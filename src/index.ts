@@ -22,7 +22,23 @@ import {
 
 const app = new Hono();
 
-// --- Middleware ---
+// --- CORS Middleware ---
+app.use('*', async (c, next) => {
+  // Allow requests from any origin (for development)
+  // In production, restrict to your Vercel domain
+  c.header('Access-Control-Allow-Origin', '*');
+  c.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  c.header('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
+  
+  // Handle preflight requests
+  if (c.req.method === 'OPTIONS') {
+    return c.text('', 204);
+  }
+  
+  await next();
+});
+
+// --- Auth Middleware ---
 app.use('*', async (c, next) => {
   if (c.req.path.startsWith('/api') && ['POST', 'PUT', 'DELETE'].includes(c.req.method)) {
     const apiKey = c.req.header('x-api-key');
